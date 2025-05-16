@@ -7,13 +7,17 @@ public class QuickSort {
         quickSort(arreglo, 0, arreglo.length - 1);
     }
 
-    // Método auxiliar para imprimir cualquier arreglo
-//    public void imprimir(int[] arreglo) {
-//        for (int i = 0; i < arreglo.length; i++) {
-//            System.out.print(arreglo[i] + " ");
-//        }
-//        System.out.println();
-//    }
+
+    /* Método auxiliar para imprimir cualquier arreglo
+
+       public void imprimir(int[] arreglo) {
+       for (int i = 0; i < arreglo.length; i++) {
+            System.out.print(arreglo[i] + " ");
+        }
+        System.out.println();    }
+
+    */
+
 
     // Método interno recursivo de QuickSort
     private void quickSort(int[] arr, int inicio, int fin) {
