@@ -7,7 +7,7 @@ public class App {
         QuickSort qs = new QuickSort();
 
         System.out.println("Arreglo Original: ");
-        //g.imprimeNumeros();
+        g.imprimeNumeros();
 
         System.out.println("Arreglo Ordenado con QuickSort: ");
         qs.ordenar(g.getNumeros());
