@@ -1,25 +1,45 @@
 package com.proyecto.algoritmos;
 
+import com.proyecto.algoritmos.busqueda.BusquedaBinaria;
+import com.proyecto.algoritmos.ordenamiento.MergeSort;
+import com.proyecto.algoritmos.ordenamiento.QuickSort;
+import com.proyecto.algoritmos.util.GeneradorNumeros;
+import com.proyecto.algoritmos.util.MensajeSecreto;
+
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
+        // Generamos el array de números aleatorios
+        GeneradorNumeros generador = new GeneradorNumeros();
+        int[] numeros = generador.generarNumeros(1000, 1000, 9999);
 
-        // ← Se genera el arreglo aleatorio
-        GeneradorNumeros g = new GeneradorNumeros(1000);
+        // Selección aleatoria de la "clave mágica"
+        int claveMagica = generador.seleccionarClave(numeros);
+        String mensajeSecreto = MensajeSecreto.asociarMensaje(claveMagica);
 
-        // ← Se crea el objeto QuickSort
-        QuickSort qs = new QuickSort();
+        // Mostramos el array original y el ordenado
+        System.out.println("Array generado:");
+        generador.mostrarArray(numeros);
 
-        // ← Imprime el arreglo desordenado
-        System.out.println("Arreglo Original: ");
-        g.imprimeNumeros();
+        // Ordenamiento usando QuickSort
+        QuickSort quickSort = new QuickSort();
+        quickSort.ordenar(numeros);
+        System.out.println("\nArray ordenado con QuickSort:");
+        generador.mostrarArray(numeros);
 
-        // ← Ordena el arreglo
-        System.out.println("Arreglo Ordenado con QuickSort: ");
-        qs.ordenar(g.getNumeros());
+        // Búsqueda binaria para encontrar la clave mágica
+        BusquedaBinaria busqueda = new BusquedaBinaria();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nIngresa el número mágico: ");
+        int numeroIngresado = scanner.nextInt();
 
-        // ← Vuelve a imprimir, ahora está ordenado
-        g.imprimeNumeros();
-
+        boolean encontrado = busqueda.buscar(numeros, numeroIngresado);
+        if (encontrado) {
+            System.out.println("¡Correcto! " + mensajeSecreto);
+        } else {
+            System.out.println("Número incorrecto.");
+        }
     }
 }
 
