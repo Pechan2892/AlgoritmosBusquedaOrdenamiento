@@ -1,4 +1,5 @@
 package com.proyecto.algoritmos.ordenamiento;
+import java.util.Arrays;
 //Cristian Alfredo Martinez Garcia
 public class MergeSort {
     /**
